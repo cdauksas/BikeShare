@@ -203,11 +203,16 @@ Order by num_of_casual desc
 # 5. Share
 ### Visualized the data by importing it into Tableau Public ###
 - Member vs Casual riders grouped by the weekday
-  - Here we can see casual riders ride much longer than members
+  - Here we can see casual riders take longer rides on average compared to members
 
 ![](https://github.com/cdauksas/PortfolioProjects/blob/main/images/bikesharevis1.png)
 
 
 - Number of riders by the weekday
   - Casual riders ride more on the weekends
- ![](https://github.com/cdauksas/PortfolioProjects/blob/main/images/num%20of%20riders%20by%20weekday.PNG)
+![](https://github.com/cdauksas/PortfolioProjects/blob/main/images/num%20of%20riders%20by%20weekday.PNG)
+
+
+- Number of riders by the month
+  - The summer months see many m
+![](https://github.com/cdauksas/PortfolioProjects/blob/main/images/No.%20of%20Riders%20by%20Month.PNG)
