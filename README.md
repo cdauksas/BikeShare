@@ -206,3 +206,8 @@ Order by num_of_casual desc
   - Here we can see casual riders ride much longer than members
 
 ![](https://github.com/cdauksas/PortfolioProjects/blob/main/images/bikesharevis1.png)
+
+
+- Number of riders by the weekday
+  - Casual riders ride more on the weekends
+ ![]()
