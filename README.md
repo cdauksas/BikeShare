@@ -123,8 +123,8 @@ WHERE end_station_name NOT LIKE '%(LBS-WH-TEST)%'
 
 DELETE FROM tot_data
 Where ride_id IS NULL OR
-start_station_name IS NULL OR
-end_station_name IS NULL OR
+start_station_name_cleaned IS NULL OR
+end_station_name_cleaned IS NULL OR
 start_station_id IS NULL OR
 end_station_id IS NULL OR
 duration IS NULL OR
@@ -138,7 +138,7 @@ duration > 1440
 
 Select Count(DISTINCT(ride_id)) AS uniq,
 Count(ride_id) AS total
-From tot_data_cleaned
+From tot_data
 
 --Rename member_casual to user_type
 EXEC sp_RENAME 'tot_data.member_casual', 'user_type', 'COLUMN'
@@ -194,10 +194,10 @@ Group BY month_m
 ```
 - Top 5 start stations for casual riders
 ```SQL
-Select top 5 start_station_name, 
+Select top 5 start_station_name_cleaned, 
 Count(case when user_type = 'casual' then 1 else NULL END) AS num_of_casual
 From tot_data
-Group BY start_station_name
+Group BY start_station_name_cleaned
 Order by num_of_casual desc
 ```
 # 5. Share
