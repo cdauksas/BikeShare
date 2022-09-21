@@ -210,4 +210,4 @@ Order by num_of_casual desc
 
 - Number of riders by the weekday
   - Casual riders ride more on the weekends
- ![]()
+ ![](https://github.com/cdauksas/PortfolioProjects/blob/main/images/num%20of%20riders%20by%20weekday.PNG)
