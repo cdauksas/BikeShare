@@ -1,4 +1,4 @@
-# Chicago Cyclist Bike Share Analysis
+# Chicago Cyclist Bike Share Analysis using Microsoft SQL Server and Tabeau Public
 
 Scenario:
 In 2016, Cyclistic launched a successful bike-share offering. The company’s future success depends on maximizing the number of annual memberships. Therefore, your team wants to understand how casual riders and annual members use Cyclistic bikes differently. From these insights, your team will design a new marketing strategy to convert casual riders into annual members.
@@ -71,7 +71,7 @@ ADD duration int
 UPDATE tot_data
 SET duration = DATEDIFF(MINUTE, started_at, ended_at)
 ```
-- I exracted the month and year, and added them as new columns
+- I extracted the month and year, and added them as new columns
 ```
 ALTER TABLE tot_data
 ADD day_of_week nvarchar(50),
@@ -114,4 +114,89 @@ Set end_station_name_cleaned = TRIM(REPLACE
 (start_station_name, '(*)',''), '(TEMP)','')) 
 FROM tot_data
 WHERE end_station_name NOT LIKE '%(LBS-WH-TEST)%'
+```
+
+- Deleted null values
+
+```
+---- Deleted rows where (NULL values), (ride length = 0), (ride length < 0), (ride_length > 1 day (1440 mins)) for accurate analysis -----
+
+DELETE FROM tot_data
+Where ride_id IS NULL OR
+start_station_name IS NULL OR
+end_station_name IS NULL OR
+start_station_id IS NULL OR
+end_station_id IS NULL OR
+duration IS NULL OR
+duration = 0 OR
+duration < 0 OR
+duration > 1440 
+```
+- Checked for any duplicates and renamed column 'member_casual' to 'user_type'
+```
+-- Checking for any duplicates
+
+Select Count(DISTINCT(ride_id)) AS uniq,
+Count(ride_id) AS total
+From tot_data_cleaned
+
+--Rename member_casual to user_type
+EXEC sp_RENAME 'tot_data.member_casual', 'user_type', 'COLUMN'
+```
+# 4. Analyze
+- Compared casual riders vs members, and grouped by the day of the week
+
+```
+----- Members vs Casual riders grouped by day of the week------
+
+Create View users_per_day AS
+Select 
+Count(case when user_type = 'member' then 1 else NULL END) AS num_of_members,
+Count(case when user_type = 'casual' then 1 else NULL END) AS num_of_casual,
+Count(*) AS num_of_users,
+day_of_week
+FROM tot_data
+GROUP BY day_of_week
+```
+- Calculated the average ride length for each user type
+
+```
+Create View avg_ride_length AS
+SELECT user_type, AVG(duration) AS avg_ride_length, day_of_week 
+From tot_data
+Group BY user_type, day_of_week
+
+```
+
+- User traffic every month since startup
+```
+-- Calculating User Traffic Every Month Since Startup
+
+Select month_int AS Month_Num,
+month_m AS Month_Name, 
+year_y AS Year_Y,
+Count(case when user_type = 'member' then 1 else NULL END) AS num_of_member,
+Count(case when user_type = 'casual' then 1 else NULL END) AS num_of_casual,
+Count(user_type) AS total_num_of_users
+From tot_data
+Group BY year_y, month_int, month_m
+ORDER BY year_y, month_int, month_m
+
+```
+- Compared casual riders vs members by the month
+```
+--casual vs member by month
+Select month_m, 
+Count(case when user_type = 'member' then 1 else NULL END) AS num_of_member,
+Count(case when user_type = 'casual' then 1 else NULL END) AS num_of_casual
+From tot_data
+Group BY month_m
+```
+- Top 5 start stations for casual riders
+```
+Select top 5 start_station_name, 
+Count(case when user_type = 'casual' then 1 else NULL END) AS num_of_casual
+From tot_data
+Group BY start_station_name
+Order by num_of_casual desc
 ```
