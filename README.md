@@ -11,7 +11,7 @@ This case study follows the six steps in the data analysis Process:
 - Share
 - Act
 
-# 1. ASK
+# 1. Ask
 
 - Define the stakeholders: Director of Marketing (Lily Moreno) and the Cylcistic Executive Team
 - 1. How do casual users and annual subcribed members use Cyclistic Bikes differently?
@@ -215,4 +215,25 @@ Order by num_of_casual desc
 
 - Number of riders by the month
   - The summer months see many m
-![](https://github.com/cdauksas/PortfolioProjects/blob/main/images/No.%20of%20Riders%20by%20Month.PNG)
+  ![](https://github.com/cdauksas/PortfolioProjects/blob/main/images/No.%20of%20Riders%20by%20Month.PNG)
+  
+  - Top 5 start stations by casual riders
+  ![](https://github.com/cdauksas/PortfolioProjects/blob/main/images/Top5.PNG)
+  
+  
+  
+  #6. Act
+After collecting, cleaning, transforming, and organizing the 12 datasets we have enough evidence to suggest answers to the business related questions.
+Conclusion based on our analysis:
+  - Casual riders take longer rides on average compared to members. 
+  - Casual riders tend to use this service on the weekends more than they do on the weekdays. 
+  - Most active months for casual riders are from June to August
+  - Most popular stations for casual riders are Streeter Dr & Grand Ave, Lake Shore Dr & Monroe St, and Millennium Park
+  
+  ### Recommendations to marketing team ###
+  - Advertise annual membership pricing plans on billboards near the top 5 most popular start stations for casual riders
+  - Provide a promotional plan for membership during the off season months to increase rider usage
+  - Advertise for membmerships on social media during the summer months since these are the busiest months for bicycling in Chicago
+  - 
+
+  
