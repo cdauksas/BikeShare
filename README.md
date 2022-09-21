@@ -28,7 +28,7 @@ This case study follows the six steps in the data analysis Process:
 # 3. Process
 - I used Microsoft SQL Server to clean and transform the data
 - I began by combining all 12 months of data into one table:
-```
+```SQL
 ------ Combining tables into one ------
 SELECT * INTO tot_data
 
@@ -62,7 +62,7 @@ SELECT * from bikeshare.dbo.nov_2021$)
 ```
 - I then added a column to calcuate ride duration 
 
-```
+```SQL
 -----Adding a new column to calcuate each ride duration--------
 
 ALTER TABLE tot_data
@@ -72,7 +72,7 @@ UPDATE tot_data
 SET duration = DATEDIFF(MINUTE, started_at, ended_at)
 ```
 - I extracted the month and year, and added them as new columns
-```
+```SQL
 ALTER TABLE tot_data
 ADD day_of_week nvarchar(50),
 month_m nvarchar(50),
@@ -92,7 +92,7 @@ SET month_int = DATEPART(MONTH, started_at)
 ```
 - Data cleaning: I trimed the station name to ensure there is no extra space. I also filtered out rows with (LBS-WH-TEST) in the start and end station names
 
-```
+```SQL
 ALTER TABLE tot_data
 ADD start_station_name_cleaned nvarchar(255)
 
@@ -118,7 +118,7 @@ WHERE end_station_name NOT LIKE '%(LBS-WH-TEST)%'
 
 - Deleted null values
 
-```
+```SQL 
 ---- Deleted rows where (NULL values), (ride length = 0), (ride length < 0), (ride_length > 1 day (1440 mins)) for accurate analysis -----
 
 DELETE FROM tot_data
@@ -133,7 +133,7 @@ duration < 0 OR
 duration > 1440 
 ```
 - Checked for any duplicates and renamed column 'member_casual' to 'user_type'
-```
+```SQL
 -- Checking for any duplicates
 
 Select Count(DISTINCT(ride_id)) AS uniq,
@@ -146,7 +146,7 @@ EXEC sp_RENAME 'tot_data.member_casual', 'user_type', 'COLUMN'
 # 4. Analyze
 - Compared casual riders vs members, and grouped by the day of the week
 
-```
+```SQL
 ----- Members vs Casual riders grouped by day of the week------
 
 Create View users_per_day AS
@@ -160,7 +160,7 @@ GROUP BY day_of_week
 ```
 - Calculated the average ride length for each user type
 
-```
+```SQL
 Create View avg_ride_length AS
 SELECT user_type, AVG(duration) AS avg_ride_length, day_of_week 
 From tot_data
@@ -169,7 +169,7 @@ Group BY user_type, day_of_week
 ```
 
 - User traffic every month since startup
-```
+```SQL
 -- Calculating User Traffic Every Month Since Startup
 
 Select month_int AS Month_Num,
@@ -184,7 +184,7 @@ ORDER BY year_y, month_int, month_m
 
 ```
 - Compared casual riders vs members by the month
-```
+```SQL
 --casual vs member by month
 Select month_m, 
 Count(case when user_type = 'member' then 1 else NULL END) AS num_of_member,
@@ -193,7 +193,7 @@ From tot_data
 Group BY month_m
 ```
 - Top 5 start stations for casual riders
-```
+```SQL
 Select top 5 start_station_name, 
 Count(case when user_type = 'casual' then 1 else NULL END) AS num_of_casual
 From tot_data
