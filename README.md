@@ -201,4 +201,8 @@ Group BY start_station_name
 Order by num_of_casual desc
 ```
 # 5. Share
-- Visualized the data by importing it into Tableau Public to make graphics
+### Visualized the data by importing it into Tableau Public ###
+- Member vs Casual riders grouped by the weekday
+  - Here we can see casual riders ride much longer than members
+
+![](https://github.com/cdauksas/PortfolioProjects/blob/main/images/bikesharevis1.png)
