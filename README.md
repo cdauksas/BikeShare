@@ -200,3 +200,5 @@ From tot_data
 Group BY start_station_name
 Order by num_of_casual desc
 ```
+# 5. Share
+- Visualized the data by importing it into Tableau Public to make graphics
