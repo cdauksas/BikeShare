@@ -214,7 +214,7 @@ Order by num_of_casual desc
 
 
 - Number of riders by the month
-  - The summer months see many m
+  - The summer months of June, July, and August see many more riders in general compared to other seasons
   ![](https://github.com/cdauksas/PortfolioProjects/blob/main/images/No.%20of%20Riders%20by%20Month.PNG)
   
   - Top 5 start stations by casual riders
@@ -223,7 +223,7 @@ Order by num_of_casual desc
   
   
   #6. Act
-After collecting, cleaning, transforming, and organizing the 12 datasets we have enough evidence to suggest answers to the business related questions.
+After collecting, cleaning, transforming, and organizing the 12 datasets we have enough evidence to answer the business related questions.
 Conclusion based on our analysis:
   - Casual riders take longer rides on average compared to members. 
   - Casual riders tend to use this service on the weekends more than they do on the weekdays. 
@@ -234,6 +234,6 @@ Conclusion based on our analysis:
   - Advertise annual membership pricing plans on billboards near the top 5 most popular start stations for casual riders
   - Provide a promotional plan for membership during the off season months to increase rider usage
   - Advertise for membmerships on social media during the summer months since these are the busiest months for bicycling in Chicago
-  - 
+  
 
   
