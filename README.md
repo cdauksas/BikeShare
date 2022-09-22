@@ -217,7 +217,8 @@ Order by num_of_casual desc
   - The summer months of June, July, and August see many more riders in general compared to other seasons
   ![](https://github.com/cdauksas/PortfolioProjects/blob/main/images/No.%20of%20Riders%20by%20Month.PNG)
   
-  - Top 5 start stations by casual riders
+ - Top 5 start stations by casual riders
+  
   ![](https://github.com/cdauksas/PortfolioProjects/blob/main/images/Top5.PNG)
   
   
