@@ -229,7 +229,7 @@ Conclusion based on our analysis:
   - Casual riders take longer rides on average compared to members. 
   - Casual riders tend to use this service on the weekends more than they do on the weekdays. 
   - Most active months for casual riders are from June to August
-  - Most popular stations for casual riders are Streeter Dr & Grand Ave, Lake Shore Dr & Monroe St, and Millennium Park
+  - Most popular stations for casual riders are Streeter Dr & Grand Ave, Millennium Park, and Michigan Ave and Oak St.
   
   ### Recommendations to marketing team ###
   - Advertise annual membership pricing plans on billboards near the top 5 most popular start stations for casual riders
