@@ -18,8 +18,7 @@ This case study follows the six steps in the data analysis process:
 - 2. How can we design new marketing strategies to help convert casual members into annual members?
 
 # 2. Prepare
-- The data source 12 months of dat (Dec 2020 - Nov. 2021) [Data Source Link](https://divvy-tripdata.s3.amazonaws.com/index.html)
-- I also used the ROCC approach to determine credibility of the data
+- I used the ROCC approach to determine credibility of the data
 - Reliability:  The dataset includes accurate ride data from Divvy. Divvy is a program of Chicago Department of Transportation (CDOT), and they own the city's bikes and stations. Data integrity was ensured through periodically valaditing the input source of the data.
 - Original: The data is from Motivate International Inc which is a Chicago Bicycle Sharing Company
 - Current: Data is up to date Nov 2021
