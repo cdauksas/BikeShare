@@ -233,7 +233,7 @@ Conclusion based on our analysis:
   ### Recommendations to marketing team ###
   - Advertise annual membership pricing plans on billboards near the top 5 most popular start stations for casual riders
   - Provide a promotional plan for membership during the off season months to increase rider usage
-  - Advertise for membmerships on social media during the summer months since these are the busiest months for bicycling in Chicago
+  - Advertise for memberships on social media during the summer months since these are the busiest months for bicycling in Chicago
   
 
   
